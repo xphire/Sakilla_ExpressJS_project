@@ -1,0 +1,144 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "REST API",
+    "description": "This is the Actors' API Node/express Project"
+  },
+  "host": "localhost:3000",
+  "basePath": "",
+  "schemes": [
+    "http"
+  ],
+  "securityDefinitions":{
+    "Bearer":{
+      "type" : "apiKey",
+      "description": "Value: Bearer {jwt}",
+      "name": "Authorization",
+      "in" : "header"
+    }
+  },
+  "security": [{"Bearer":[]}],
+  "tags": [
+    {
+      "name": "Authenticate",
+      "description": "Authenticate Users here"},
+    {
+      "name": "Actors",
+      "description": "Interact with the Sakilla Actor Database"
+    } 
+  ],
+  "paths": {
+    "/api/v1/auth":{
+      "post": {
+        "tags":["Authenticate"],
+        "description": "This generates token for the user",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "example": "Zaragozax35"
+                },
+                "password": {
+                  "example": "*******"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {}
+    }},
+    "/api/v1/actors": {
+      "get": {
+        "tags":["Actors"],
+        "description": "This fetches all the actors in the database",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/api/v1/actors/{id}": {
+      "get": {
+        "tags":["Actors"],
+        "description": "This fetches a particular actor from the database if his/her ID is supplied",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags":["Actors"],
+        "description": "This creates a new actor record in the database",
+        "parameters": [ {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "first_name": {
+                "example": "Lionel"
+              },
+              "last_name": {
+                "example": "Messi"
+              }
+            }
+          }
+        }],
+        "responses": {}
+      },
+      "put": {
+        "tags":["Actors"],
+        "description": "This updates the data of an actor",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "first_name": {
+                  "example": "Lionel"
+                },
+                "last_name": {
+                  "example": "Messi"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {}
+      },
+      "delete": {
+        "tags":["Actors"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      }
+    }
+  }
+}
