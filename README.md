@@ -1,6 +1,6 @@
 # ExpressJS-Projects
 
-This repo contains express js projects. 
+This repo contains an express js project. 
 
 Projects are on a  beginner level expertise
 
