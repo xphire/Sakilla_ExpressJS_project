@@ -2,8 +2,6 @@
 
 This repo contains an express js project. 
 
-Projects are on a  beginner level expertise
-
 The project is based on the Sakilla Mysql database.
 
 The tar file of the sakilla database was imported into Postgres 15 using the pgAdmin GUI
